@@ -2,6 +2,9 @@
 Easy Note is an easy general purpose note application
 
 
+i'm using a template from [this site](https://www.tailwindawesome.com/?price=free)
+[template url](https://www.tailwindawesome.com/resources/vue-tailwind-admin/demo)
+
 
 ## Recommended IDE Setup
 
