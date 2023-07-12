@@ -1,13 +1,8 @@
 <template>
-    <div    @click="emits('click')"
-            class="w-full flex flex-row justify-between items-center text-blue-400 p-4 hover:bg-gray-200 cursor-pointer"
-            :class="
-                {
-                    'bg-gray-200': selected,
-                    'rounded-lg': !rounded_t_only,
-                    'rounded-t-lg': rounded_t_only
-                }"
-            >
+    <div 
+        class="flex flex-row justify-between items-center text-blue-400 p-2 pl-4 hover:bg-gray-200 cursor-pointer"
+        :class="{ 'bg-gray-200': active, 'rounded-lg': !rounded_t_only, 'rounded-t-lg': rounded_t_only }"
+        @click="emits('click')" >
         <div class="flex flex-row justify-start min-w-fit">
             <!-- icon -->
             <div v-if="iconPath" class="pl-4">
@@ -17,23 +12,25 @@
             </div>
             
             <!-- text -->
-            <span class="text-center text-gray-700">{{title}}</span>
+            <span class="text-center text-gray-700 whitespace-nowrap">{{title}}</span>
         </div>
         <!-- actions -->
-        <div v-for="action of actions" :key="action.title" class="px-2">
-            <svg class="h-4 w-4 fill-current mr-2" viewBox="0 0 20 20" >
-                <path :d="action.iconPath" />
-            </svg>
+        <div v-if="actions" class="flex items-stretch pl-2">
+            <Icon
+                v-for="action of actions" :key="action"
+                :icon="action"
+            />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { PropType } from "vue"
+import Icon from "./Icon.vue";
 // TODO add icons
 
 const props = defineProps({
-    selected: {
+    active: {
         type: Boolean,
         default: () => false,
     },
@@ -49,10 +46,7 @@ const props = defineProps({
         type: String,
     },
     actions: {
-        type: Array as PropType<{
-            title: string,
-            iconPath: string,
-        }[]>,
+        type: Array<string>,
         default: () => []
     }
 })

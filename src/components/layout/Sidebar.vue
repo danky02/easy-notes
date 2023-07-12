@@ -10,25 +10,25 @@
 
         <div class="mb-4 px-4">
             <p class="pl-4 text-sm font-semibold mb-1">MAIN</p>
-            <Button :selected="true" title="Dashboard" :iconPath="IconsPath.ICON_PATH_DASHBOARD" />
-            <Button :selected="false" title="Analytics" :iconPath="IconsPath.ICON_PATH_ANALYTICS" />
-            <Button :selected="false" title="Inventory" :iconPath="IconsPath.ICON_PATH_INVENTORY" />
-            <Button :selected="false" title="Enquiries" :iconPath="IconsPath.ICON_PATH_ENQUIRIES" />
-            <Button :selected="false" title="Calender" :iconPath="IconsPath.ICON_PATH_CALENDAR" />
+            <Button :active="true" title="Dashboard" :iconPath="IconsPath.ICON_PATH_DASHBOARD" />
+            <Button :active="false" title="Analytics" :iconPath="IconsPath.ICON_PATH_ANALYTICS" />
+            <Button :active="false" title="Inventory" :iconPath="IconsPath.ICON_PATH_INVENTORY" />
+            <Button :active="false" title="Enquiries" :iconPath="IconsPath.ICON_PATH_ENQUIRIES" />
+            <Button :active="false" title="Calender" :iconPath="IconsPath.ICON_PATH_CALENDAR" />
         </div>
 
         <div class="mb-4 px-4">
             <p class="pl-4 text-sm font-semibold mb-1">PRODUCTS</p>
-            <Button :selected="false" title="Add Product" :iconPath="IconsPath.ICON_PATH_ADD_PRODUCT" />
-            <Button :selected="false" title="View Products" :iconPath="IconsPath.ICON_PATH_VIEW_PRODUCT" />
+            <Button :active="false" title="Add Product" :iconPath="IconsPath.ICON_PATH_ADD_PRODUCT" />
+            <Button :active="false" title="View Products" :iconPath="IconsPath.ICON_PATH_VIEW_PRODUCT" />
 
         </div>
 
         <div class="mb-4 px-4">
             <p class="pl-4 text-sm font-semibold mb-1">MISC</p>
-            <Button :selected="false" title="Notices" :iconPath="IconsPath.ICON_PATH_NOTICES" />
-            <Button :selected="false" title="Controls" :iconPath="IconsPath.ICON_PATH_CONTROLS" />
-            <Button :selected="false" title="Settings" :iconPath="IconsPath.ICON_PATH_SETTINGS" />
+            <Button :active="false" title="Notices" :iconPath="IconsPath.ICON_PATH_NOTICES" />
+            <Button :active="false" title="Controls" :iconPath="IconsPath.ICON_PATH_CONTROLS" />
+            <Button :active="false" title="Settings" :iconPath="IconsPath.ICON_PATH_SETTINGS" />
     </div>
 
 </div></template>

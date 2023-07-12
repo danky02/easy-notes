@@ -1,35 +1,75 @@
 <script setup lang="ts">
 import { IconsPath } from '@/assets/iconsPath';
 import Button from '@/components/widgets/Button.vue';
+import { computed, onMounted, onUnmounted, ref, type VNodeRef } from 'vue';
 
-const tabs:string[] = ["nota 1", "nota 2", "nota 3", "nota 1", "nota 2", "nota 3", "nota 1", "nota 2", "nota 3", "nota 1", "nota 2", "nota 3", "nota 1", "nota 2", "nota 3", "nota 1", "nota 2", "nota 3", "nota 1", "nota 2", "nota 3"]
 
-// TODO
+import { useTabsStore } from '@/stores/TabsStore';
+import { storeToRefs } from 'pinia';
+
+const tabsStore = useTabsStore()
+const tabs = storeToRefs(tabsStore).allTabs
+
+function newTabSelected(tabId:string) {
+    tabsStore.switchTab(tabId);
+}
+
+/* NEXT FEATURES
+- close on ctrl+w, mouse wheel click
+- drag and drop tabs order
+
+*/
+
+// TODO 'tab button'
 </script>
 
 <template>
-    <!-- wrapper for tab -->
-    <div class="scrollmenu flex flex-row">
-        <Button v-for="tab of tabs" :key="tab"
-            :actions="[
-                {iconPath: IconsPath.ICON_PATH_ADD_PRODUCT, title: 'close'}
-            ]"
+    <div class="scrollmenu flex flex-row snap-x snap-mandatory">
+        <Button v-for="tab of tabs" :key="tab.id"
+            :actions="['x']"
             :rounded_t_only="true"
-            :title="tab" 
-            class="tab"
+            :title="tab.title"
+            :active="tab.isActive"
+            @click="newTabSelected(tab.id)"
+            class="snap-start"
         />
+    </div>
+
+    <!-- editor -->
+    <div>
 
     </div>
 
 </template>
 
 <style>
-/* div.scrollmenu {
+div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
-div.scrollmenu .tab {
+div.scrollmenu::-webkit-scrollbar {
+    /* width: 20px; */
+    height: 5px;
+}
+
+div.scrollmenu::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    /* background: #f7f4ed; */
+}
+
+div.scrollmenu::-webkit-scrollbar-thumb {
+    background: rgb(202, 226, 255);
+    border-radius: 100vh;
+    /* border: 3px solid #f6f7ed; */
+}
+
+div.scrollmenu::-webkit-scrollbar-thumb:hover {
+    background: rgb(96 165 250);
+}
+
+/* div.scrollmenu .tab {
     display: inline-block;
 } */
 </style>
