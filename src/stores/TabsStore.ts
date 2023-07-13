@@ -10,12 +10,12 @@ export const useTabsStore = defineStore('tabs', {
             {id: '1', title: "nome lungo di una nota inesistente numero 1"},
             {id: '2', title: "nome lungo di una nota inesistente numero 2"},
             {id: '3', title: "nome lungo di una nota inesistente numero 3"},
-            {id: '4', title: "nome lungo di una nota inesistente numero 4"},
-            {id: '5', title: "nome lungo di una nota inesistente numero 5"},
-            {id: '6', title: "nome lungo di una nota inesistente numero 6"},
-            {id: '7', title: "nome lungo di una nota inesistente numero 7"},
-            {id: '8', title: "nome lungo di una nota inesistente numero 8"},
-            {id: '9', title: "nome lungo di una nota inesistente numero 9"},
+            // {id: '4', title: "nome lungo di una nota inesistente numero 4"},
+            // {id: '5', title: "nome lungo di una nota inesistente numero 5"},
+            // {id: '6', title: "nome lungo di una nota inesistente numero 6"},
+            // {id: '7', title: "nome lungo di una nota inesistente numero 7"},
+            // {id: '8', title: "nome lungo di una nota inesistente numero 8"},
+            // {id: '9', title: "nome lungo di una nota inesistente numero 9"},
         ]
         let activeTabId:string|undefined;
         

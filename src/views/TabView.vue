@@ -6,6 +6,7 @@ import { computed, onMounted, onUnmounted, ref, type VNodeRef } from 'vue';
 
 import { useTabsStore } from '@/stores/TabsStore';
 import { storeToRefs } from 'pinia';
+import MilkdownEditorWrapper from '@/components/MilkdownEditorWrapper.vue';
 
 const tabsStore = useTabsStore()
 const tabs = storeToRefs(tabsStore).allTabs
@@ -20,26 +21,27 @@ function newTabSelected(tabId:string) {
 
 */
 
-// TODO 'tab button'
+// TODO use 'tab button' instead Button
 </script>
 
 <template>
-    <div class="scrollmenu flex flex-row snap-x snap-mandatory">
-        <Button v-for="tab of tabs" :key="tab.id"
-            :actions="['x']"
-            :rounded_t_only="true"
-            :title="tab.title"
-            :active="tab.isActive"
-            @click="newTabSelected(tab.id)"
-            class="snap-start"
-        />
+    <div class="grid grid-cols-1 justify-stretch h-full">
+        <div class="scrollmenu flex flex-row snap-x snap-mandatory">
+            <Button v-for="tab of tabs" :key="tab.id"
+                :actions="['x']"
+                :rounded_t_only="true"
+                :title="tab.title"
+                :active="tab.isActive"
+                @click="newTabSelected(tab.id)"
+                class="snap-start"
+            />
+        </div>
+
+        <!-- editor -->
+        <div class="bg-gray-200 justify-self-stretch p-2" style="height: auto;display:inline-block;">
+            <MilkdownEditorWrapper />
+        </div>
     </div>
-
-    <!-- editor -->
-    <div>
-
-    </div>
-
 </template>
 
 <style>
@@ -56,6 +58,8 @@ div.scrollmenu::-webkit-scrollbar {
 
 div.scrollmenu::-webkit-scrollbar-track {
     border-radius: 100vh;
+    
+    background: rgb(229, 231, 235);
     /* background: #f7f4ed; */
 }
 

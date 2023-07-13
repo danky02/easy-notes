@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="flex flex-row justify-between items-center text-blue-400 p-2 pl-4 hover:bg-gray-200 cursor-pointer"
+        class="flex flex-row justify-between items-center text-blue-400 p-2 pl-4 hover:bg-gray-300 cursor-pointer"
         :class="{ 'bg-gray-200': active, 'rounded-lg': !rounded_t_only, 'rounded-t-lg': rounded_t_only }"
         @click="emits('click')" >
         <div class="flex flex-row justify-start min-w-fit">

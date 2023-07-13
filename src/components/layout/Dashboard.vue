@@ -1,6 +1,6 @@
 <template>
     <div class="leading-normal tracking-normal" id="main-body">
-        <div class="flex flex-wrap">
+        <div class="flex flex-col">
 
             <SideBar />
 
@@ -9,11 +9,11 @@
 
                 <Navbar />
 
-                <div class="p-6 bg-gray-100 mb-20">
+                <div class="p-6 bg-gray-100 mb-20 h-full">
                     <router-view />
                 </div>
 
-                <Footer></Footer>
+                <!-- <Footer></Footer> -->
 
             </div>
         </div>
